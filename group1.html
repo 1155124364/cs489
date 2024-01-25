@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>group 1</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #333;
+        }
+        .viewer {
+            position: relative;
+            text-align: center;
+        }
+        .viewer img {
+            max-width: 90%;
+            max-height: 80vh;
+        }
+        .description {
+            font-family: 'IBM Plex Mono', monospace;
+            color: rgb(247, 238, 211);
+        }
+        .arrow {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #fff;
+            user-select: none;
+        }
+        .arrow.left { left: 10px; }
+        .arrow.right { right: 10px; }
+    </style>
+</head>
+<body>
+    <div class="viewer">
+        <span class="arrow left" onclick="previousImage()">&#10094;</span>
+        <img id="image" src="path/to/first/image/in/group1.jpg" alt="group 1">
+        <p id="description" class="description">group 1</p>
+        <span class="arrow right" onclick="nextImage()">&#10095;</span>
+    </div>
+
+    <script>
+        var currentImageIndex = 0;
+        var images = [
+            // 示例图片数组，实际中请替换图片和描述
+            { src: "UEX 1-1.png", description: "UEX 1-1" },
+            { src: "UEX 1-2.png", description: "UEX 1-2" },
+            { src: "UEX 1-3.png", description: "UEX 1-3" },
+            // 其他图片...
+        ];
+
+        function typeWriter(element, text, speed) {
+            var i = 0;
+            function typing() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                }
+            }
+            typing();
+        }
+
+        function updateViewer() {
+            document.getElementById('image').src = images[currentImageIndex].src;
+            document.getElementById('description').innerText = images[currentImageIndex].description;
+
+            var imageElement = document.getElementById('image');
+            var descriptionElement = document.getElementById('description');
+
+            imageElement.src = images[currentImageIndex].src;
+            descriptionElement.innerHTML = ''; // 清空现有的文本
+            typeWriter(descriptionElement, images[currentImageIndex].description, 50); // 以打字效果显示文本
+        }
+
+        function nextImage() {
+            if (currentImageIndex < images.length - 1) {
+                currentImageIndex++;
+                updateViewer();
+            }
+        }
+
+        function previousImage() {
+            if (currentImageIndex > 0) {
+                currentImageIndex--;
+                updateViewer();
+            }
+        }
+
+        updateViewer();
+    </script>
+</body>
+</html>

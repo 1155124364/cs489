@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>CS489 webportfolio</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
     <style>
+        body {
+            margin: 0;
+            background-color: rgb(44, 44, 48); /* 设置背景颜色 */
+            color: rgb(247, 238, 211); /* 设置默认文本颜色为白色 */
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(247, 238, 211); /* 设置标题颜色为白色 */
+            font-size: 6vw; /* 使用视口宽度的百分比设置字体大小 */
+            margin: 20px 0; /* 添加一些上下边距 */
+        }
         .gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -12,18 +26,58 @@
         .gallery-item {
             position: relative;
             cursor: pointer;
+            width: 100%; /* 容器宽度 */
+            height: 0;   /* 初始高度为0 */
+            padding-top: 100%; /* 顶部填充设置为容器宽度的100%，从而使容器成为正方形 */
+            overflow: hidden; /* 超出容器的部分不显示 */
         }
         .gallery-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover; /* 图片覆盖整个容器，保持宽高比 */
+            object-position: center; /* 图片居中显示 */
         }
         .gallery-item .caption {
             position: absolute;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%; /* 让背景覆盖整个图片 */
+            background: rgba(0, 0, 0, 0.5);
+            color: rgb(249, 204, 111);
+            display: flex;
+            align-items: center; /* 垂直居中对齐 */
+            justify-content: center; /* 水平居中对齐 */
+            font-size: 4vw; /* 使用视口宽度的百分比设置字体大小 */
             text-align: center;
+            padding: 0.2em 0;
+            transform: translateY(0);
+        }
+        .gallery-item:hover .caption {
+            transform: translateY(100%);
+        }
+        .gallery-item .hover-text {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: rgb(247, 238, 211);
+            display: flex;
+            align-items: center; /* 垂直居中对齐 */
+            justify-content: center; /* 水平居中对齐 */
+            font-size: 2vw; /* 使用视口宽度的百分比设置字体大小 */
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            transform: translateY(100%); /* 初始时隐藏 */
+            transition: transform 0.5s ease; /* 过渡动画 */
+            padding: 0.2vw 0;
+        }
+        .gallery-item:hover .hover-text {
+            transform: translateY(0); /* 鼠标悬浮时显示 */
         }
     </style>
 </head>
@@ -31,8 +85,34 @@
     <h1>My Portfolio</h1>
     <div class="gallery">
         <div class="gallery-item" onclick="location.href='group1.html';">
-            <img src="UEX 1-1.png" alt="group 1">
-            <div class="caption">group 1</div>
+            <img src="UEX 1-2.png" alt="group 1">
+            <div class="caption">Empathy</div>
+            <div class="hover-text">Better late-night walking commuting experience.</div>
+        </div>
+        <div class="gallery-item" onclick="location.href='group2.html';">
+            <img src="UEX 2-3.png" alt="group 2">
+            <div class="caption">Composition</div>
+            <div class="hover-text">Recycled fashion.</div>
+        </div>
+        <div class="gallery-item" onclick="location.href='group3.html';">
+            <img src="UEX 3-4.png" alt="group 3">
+            <div class="caption">Analogy</div>
+            <div class="hover-text">Solving problems, with solutions for other problems.</div>
+        </div>
+        <div class="gallery-item" onclick="location.href='group4.html';">
+            <img src="UEX 4-7.png" alt="group 4">
+            <div class="caption">Style</div>
+            <div class="hover-text">From patent to product.</div>
+        </div>
+        <div class="gallery-item" onclick="location.href='group5.html';">
+            <img src="UEX 5-2.png" alt="group 5">
+            <div class="caption">Context</div>
+            <div class="hover-text">Interation with the community.</div>
+        </div>
+        <div class="gallery-item" onclick="location.href='group6.html';">
+            <img src="UEX 6-2.png" alt="group 6">
+            <div class="caption">Blend</div>
+            <div class="hover-text">Design with collage.</div>
         </div>
     </div>
 </body>
