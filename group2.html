@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Empathy</title>
+    <title>Composition</title>
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
     <style>
         body {
@@ -42,7 +42,7 @@
     <div class="viewer">
         <span class="arrow left" onclick="previousImage()">&#10094;</span>
         <img id="image" src="path/to/first/image/in/group1.jpg" alt="group 1">
-        <p id="description" class="description">Empathy</p>
+        <p id="description" class="description">Composition</p>
         <span class="arrow right" onclick="nextImage()">&#10095;</span>
     </div>
 
@@ -50,9 +50,13 @@
         var currentImageIndex = 0;
         var images = [
             // 示例图片数组，实际中请替换图片和描述
-            { src: "UEX 1-1.png", description: "Walking long distances late at night in Lausanne is generally a very poor experience." },
-            { src: "UEX 1-3.png", description: "Our proposed system of smart streetlights." },
-            { src: "UEX 1-2.png", description: "Our proposed application that provides service of having someone walking together with." },
+            { src: "UEX 2-1.png", description: "Fertilizer made out of human hair" },
+            { src: "UEX 2-2.png", description: "Suitcase made with computer parts" },
+            { src: "UEX 2-4.png", description: "Jewelry made out of coffee cups" },
+            { src: "UEX 2-5.png", description: "Phone case made out of plastic bottles" },
+            { src: "UEX 2-6.png", description: "Bagpack made out of sewed unbrellas" },
+            { src: "UEX 2-3.png", description: "Hat made out of recycled shoes" },
+            { src: "UEX 2-7.png", description: "Concept store for hats from recycled shoes" },
             // 其他图片...
         ];
         var typingTimer;
